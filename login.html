@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Estilos para la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Fondo azul claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background-color: #ffffff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-box h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #00796b; /* Color verde oscuro */
+        }
+        .login-box label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #00796b; /* Color verde oscuro */
+        }
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #00796b; /* Borde verde oscuro */
+            border-radius: 4px;
+            box-sizing: border-box; /* Para incluir el padding y el borde en el tamaño total */
+        }
+        .login-box .eye-icon {
+            cursor: pointer;
+            position: absolute;
+            right: 10px; /* Espaciado desde la derecha */
+            top: 50%;
+            transform: translateY(-50%); /* Centrado verticalmente */
+            z-index: 1; /* Asegura que esté por encima del campo de entrada */
+        }
+        .login-box input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #00796b; /* Fondo verde oscuro */
+            border: none;
+            border-radius: 4px;
+            color: #ffffff; /* Texto blanco */
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-box input[type="button"]:hover {
+            background-color: #004d40; /* Fondo verde más oscuro al pasar el mouse */
+        }
+        .password-container {
+            position: relative;
+        }
+    </style>
+    <script>
+        function loguear() {
+            let user = document.getElementById("usuario").value;
+            let pass = document.getElementById("clave").value;
+
+            if (!user || !pass) {
+                alert("Por favor, complete ambos campos.");
+                return;
+            }
+
+            if ((user === "Isaac" && pass === "1234") ||
+                (user === "Michelle" && pass === "6789") ||
+                (user === "Emmanuel" && pass === "4321") ||
+                (user === "Oscar" && pass === "9876") ||
+                (user === "Marcos" && pass === "loquesea") ||
+                (user === "Jordano" && pass === "1254") ||
+                (user === "Anyelin" && pass === "7678")) {
+
+                // Redirigir a la página de bienvenida con parámetros de usuario
+                window.location = 'bienvenida.html?user=' + user;
+            } else {
+                alert("Datos incorrectos");
+            }
+        }
+
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("clave");
+            const eyeIcon = document.getElementById("eye-icon");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.src = "https://img.icons8.com/material-outlined/24/00796b/visible.png"; // Icono de ojo visible
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.src = "https://img.icons8.com/material-outlined/24/00796b/invisible.png"; // Icono de ojo oculto
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Bienvenido a la base de Datos</h1>
+        <form action="">
+            <label for="usuario">Usuario</label>
+            <input type="text" placeholder="Escriba su usuario" id="usuario" aria-label="Usuario">
+            <label for="clave">Contraseña</label>
+            <div class="password-container">
+                <input type="password" placeholder="Escriba su Contraseña" id="clave" aria-label="Contraseña">
+                <img id="eye-icon" class="eye-icon" src="https://img.icons8.com/material-outlined/24/00796b/invisible.png" alt="Toggle Password Visibility" onclick="togglePasswordVisibility()">
+            </div>
+            <input type="button" value="Entrar" onclick="loguear()">
+        </form>
+    </div>
+</body>
+</html>

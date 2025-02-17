@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+    function loguear() {
+        let user = document.getElementById("usuario").value;
+        let pass = document.getElementById("clave").value;
+        if (user === "Isaac" && pass === "1234") {
+        if (user === "Michelle" && pass === "6789") {
+        if (user === "Enmanuel" && pass === "4321") {
+        if (user === "Oscar" && pass === "9876") {
+        if (user === "Marcos" && pass === "loquesea") {
+        if (user === "Jordano" && pass === "1254") {
+        if (user === "Anyelin" && pass === "7678") {
+            // Redirigir a la página de bienvenida con parámetros de usuario
+            window.location = `bienvenida.html?user=${user}`;
+        } else {
+            alert("Datos incorrectos");
+        }
+    }
+    </script>
+</head>
+<body>
+    <form action="">
+        <h1>Bienvenido a la base de Dato</h1>
+        <label for="usuario">Usuario</label>
+        <input type="text" placeholder="Escriba su usuario" id="usuario">
+        <br><br>
+        <label for="clave">Contraseña</label>
+        <input type="password" placeholder="Escriba su Contraseña" id="clave">
+        <br><br>
+        <input type="button" value="Entrar" onclick="loguear()">
+    </form>
+</body>
+</html>
